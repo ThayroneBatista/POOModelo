@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modelo", "Modelo\Modelo.csproj", "{FD3E8881-991E-4512-A207-505F2C8C5C7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{80F3E20C-4EC9-4E84-BB56-A0B275D96A89}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD3E8881-991E-4512-A207-505F2C8C5C7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD3E8881-991E-4512-A207-505F2C8C5C7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD3E8881-991E-4512-A207-505F2C8C5C7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD3E8881-991E-4512-A207-505F2C8C5C7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80F3E20C-4EC9-4E84-BB56-A0B275D96A89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80F3E20C-4EC9-4E84-BB56-A0B275D96A89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80F3E20C-4EC9-4E84-BB56-A0B275D96A89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80F3E20C-4EC9-4E84-BB56-A0B275D96A89}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
