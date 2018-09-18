@@ -22,5 +22,19 @@ namespace DAL
                 return tabela;
             }
         }
+
+        public DataTable listaDeClientes
+        {
+            get 
+            {
+                SqlConnection cn = new SqlConnection(Dados.stringDeConexao);
+                cn.Open();
+                SqlDataAdapter da = new SqlDataAdapter("dbo.prSelectAllClientes", cn);
+                DataTable tabela = new DataTable();
+                da.Fill(tabela);
+                cn.Close();
+                return tabela;
+            }
+        }
     }
 }
