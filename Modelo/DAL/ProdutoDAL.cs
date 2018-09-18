@@ -2,28 +2,28 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Data.SqlClient;
 using Modelo;
+using System.Data.SqlClient;
 using System.Data;
 
 namespace DAL
 {
-    public class ClientesDAL : Dados
+    public class ProdutoDAL
     {
-        public void incluir(Cliente cliente)
+        public void incluir(Produto produto)
         {
             SqlConnection cn = new SqlConnection();
             try
             {
-                cn.ConnectionString = stringDeConexao;
+                cn.ConnectionString = Dados.stringDeConexao;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = cn;
-                cmd.CommandText = "dbo.prInserirCliente @nome, @email, @telefone; select @@IDENTITY";
-                cmd.Parameters.AddWithValue("@nome", cliente.nome);
-                cmd.Parameters.AddWithValue("@email", cliente.email);
-                cmd.Parameters.AddWithValue("@telefone", cliente.telefone);
+                cmd.CommandText = "dbo.prInserirProduto @nome, @preco, @estoque; select @@IDENTITY";
+                cmd.Parameters.AddWithValue("@nome", produto.nome);
+                cmd.Parameters.AddWithValue("@preco", produto.preco);
+                cmd.Parameters.AddWithValue("@estoque", produto.estoque);
                 cn.Open();
-                cliente.codigo = Convert.ToInt32(cmd.ExecuteScalar());
+                produto.codigo = Convert.ToInt32(cmd.ExecuteScalar());
             }
             catch (SqlException ex)
             {
@@ -38,19 +38,19 @@ namespace DAL
                 cn.Close();
             }
         }
-        public void alterar(Cliente cliente)
+        public void alterar(Produto produto)
         {
             SqlConnection cn = new SqlConnection();
             try
             {
-                cn.ConnectionString = stringDeConexao;
+                cn.ConnectionString = Dados.stringDeConexao;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = cn;
-                cmd.CommandText = "dbo.prAlterarCliente @codigo, @nome, @email, @telefone";
-                cmd.Parameters.AddWithValue("@codigo", cliente.codigo);
-                cmd.Parameters.AddWithValue("@nome", cliente.nome);
-                cmd.Parameters.AddWithValue("@email", cliente.email);
-                cmd.Parameters.AddWithValue("@telefone", cliente.telefone);
+                cmd.CommandText = "dbo.prAlterarProduto @codigo, @nome, @preco, @estoque";
+                cmd.Parameters.AddWithValue("@codigo", produto.codigo);
+                cmd.Parameters.AddWithValue("@nome", produto.nome);
+                cmd.Parameters.AddWithValue("@preco", produto.preco);
+                cmd.Parameters.AddWithValue("@estoque", produto.estoque);
                 cn.Open();
                 cmd.ExecuteNonQuery();
             }
@@ -72,17 +72,17 @@ namespace DAL
             SqlConnection cn = new SqlConnection();
             try
             {
-                cn.ConnectionString = stringDeConexao;
+                cn.ConnectionString = Dados.stringDeConexao;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = cn;
-                cmd.CommandText = "dbo.prExcluir @codigo";
+                cmd.CommandText = "dbo.prExcluirProduto @codigo";
                 cmd.Parameters.AddWithValue("@codigo", codigo);
                 cn.Open();
                 int result = cmd.ExecuteNonQuery();
                 if (result != 1)
                 {
-                    throw new Exception("Não foi possível excluir o cliente " + codigo);
-                } 
+                    throw new Exception("Não foi possível excluir o produto " + codigo);
+                }
             }
             catch (SqlException ex)
             {
@@ -100,7 +100,7 @@ namespace DAL
         public DataTable listagem()
         {
             DataTable tabela = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("dbo.prSelectAllClientes", stringDeConexao);
+            SqlDataAdapter da = new SqlDataAdapter("dbo.prSelectAllProdutos", Dados.stringDeConexao);
             da.Fill(tabela);
             return tabela;
         }

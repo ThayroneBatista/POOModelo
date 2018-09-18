@@ -7,11 +7,9 @@ namespace DAL
 {
     public class Dados
     {
-        private string _stringDeConexao  = "Data Source=DESKTOP-TB0OPVD;Initial Catalog=BDBiblio;Integrated Security=SSPI";
-
-        public string stringDeConexao
+        public static string stringDeConexao
         {
-            get { return _stringDeConexao; }
+            get { return "Data Source=DESKTOP-TB0OPVD;Initial Catalog=Doctum;Integrated Security=SSPI"; }
         }
     }
 }
