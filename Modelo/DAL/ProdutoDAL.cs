@@ -5,6 +5,7 @@ using System.Text;
 using Modelo;
 using System.Data.SqlClient;
 using System.Data;
+using System.Collections;
 
 namespace DAL
 {
@@ -103,6 +104,11 @@ namespace DAL
             SqlDataAdapter da = new SqlDataAdapter("dbo.prSelectAllProdutos", Dados.stringDeConexao);
             da.Fill(tabela);
             return tabela;
+        }
+
+        public ArrayList produtosEmfalta()
+        {
+            throw new NotImplementedException();
         }
     }
 }

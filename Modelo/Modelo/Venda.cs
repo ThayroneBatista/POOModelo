@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Modelo
 {
-    class Venda
+    public class Venda
     {
         private int _codigo;
 

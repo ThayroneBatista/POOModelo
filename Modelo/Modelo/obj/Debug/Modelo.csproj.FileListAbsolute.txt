@@ -3,3 +3,8 @@ C:\Users\todos.ACADEMICO\Desktop\POO\Modelo\Modelo\bin\Debug\Modelo.pdb
 C:\Users\todos.ACADEMICO\Desktop\POO\Modelo\Modelo\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\todos.ACADEMICO\Desktop\POO\Modelo\Modelo\obj\Debug\Modelo.dll
 C:\Users\todos.ACADEMICO\Desktop\POO\Modelo\Modelo\obj\Debug\Modelo.pdb
+C:\Users\Thayr\Desktop\POO\POOModelo\Modelo\Modelo\bin\Debug\Modelo.dll
+C:\Users\Thayr\Desktop\POO\POOModelo\Modelo\Modelo\bin\Debug\Modelo.pdb
+C:\Users\Thayr\Desktop\POO\POOModelo\Modelo\Modelo\obj\Debug\Modelo.csprojResolveAssemblyReference.cache
+C:\Users\Thayr\Desktop\POO\POOModelo\Modelo\Modelo\obj\Debug\Modelo.dll
+C:\Users\Thayr\Desktop\POO\POOModelo\Modelo\Modelo\obj\Debug\Modelo.pdb
