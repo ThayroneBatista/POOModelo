@@ -18,7 +18,7 @@ namespace DAL
                 cn.ConnectionString = Dados.stringDeConexao;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = cn;
-                cmd.CommandText = "dbo.prInserirCliente @nome, @email, @telefone; select @@IDENTITY";
+                cmd.CommandText = "insert into clientes (nome, email, telefone) values (@nome, @email, @telefone); select @@IDENTITY";
                 cmd.Parameters.AddWithValue("@nome", cliente.nome);
                 cmd.Parameters.AddWithValue("@email", cliente.email);
                 cmd.Parameters.AddWithValue("@telefone", cliente.telefone);
@@ -46,7 +46,7 @@ namespace DAL
                 cn.ConnectionString = Dados.stringDeConexao;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = cn;
-                cmd.CommandText = "dbo.prAlterarCliente @codigo, @nome, @email, @telefone";
+                cmd.CommandText = "update clientes set nome = @nome, email = @email, telefone = @telefone where codigo = @codigo";
                 cmd.Parameters.AddWithValue("@codigo", cliente.codigo);
                 cmd.Parameters.AddWithValue("@nome", cliente.nome);
                 cmd.Parameters.AddWithValue("@email", cliente.email);
@@ -75,7 +75,7 @@ namespace DAL
                 cn.ConnectionString = Dados.stringDeConexao;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = cn;
-                cmd.CommandText = "dbo.prExcluirCliente @codigo";
+                cmd.CommandText = "delete from clientes where codigo = @codigo";
                 cmd.Parameters.AddWithValue("@codigo", codigo);
                 cn.Open();
                 int result = cmd.ExecuteNonQuery();
@@ -100,7 +100,7 @@ namespace DAL
         public DataTable listagem()
         {
             DataTable tabela = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("dbo.prSelectAllClientes", Dados.stringDeConexao);
+            SqlDataAdapter da = new SqlDataAdapter("select * from clientes", Dados.stringDeConexao);
             da.Fill(tabela);
             return tabela;
         }

@@ -12,7 +12,7 @@ namespace BLL
 {
     public class ProdutoBLL
     {
-        public ArrayList produtosEmFalta()
+        public DataTable produtosEmFalta()
         {
             ProdutoDAL obj = new ProdutoDAL();
             return obj.produtosEmfalta();

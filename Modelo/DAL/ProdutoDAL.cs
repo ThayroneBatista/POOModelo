@@ -19,7 +19,7 @@ namespace DAL
                 cn.ConnectionString = Dados.stringDeConexao;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = cn;
-                cmd.CommandText = "dbo.prInserirProduto @nome, @preco, @estoque; select @@IDENTITY";
+                cmd.CommandText = "insert into produtos (nome, preco, estoque) values (@nome, @preco, @estoque); select @@IDENTITY";
                 cmd.Parameters.AddWithValue("@nome", produto.nome);
                 cmd.Parameters.AddWithValue("@preco", produto.preco);
                 cmd.Parameters.AddWithValue("@estoque", produto.estoque);
@@ -47,7 +47,7 @@ namespace DAL
                 cn.ConnectionString = Dados.stringDeConexao;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = cn;
-                cmd.CommandText = "dbo.prAlterarProduto @codigo, @nome, @preco, @estoque";
+                cmd.CommandText = "update produtos set nome = @nome, preco = @preco, estoque = @estoque where codigo = @codigo";
                 cmd.Parameters.AddWithValue("@codigo", produto.codigo);
                 cmd.Parameters.AddWithValue("@nome", produto.nome);
                 cmd.Parameters.AddWithValue("@preco", produto.preco);
@@ -76,7 +76,7 @@ namespace DAL
                 cn.ConnectionString = Dados.stringDeConexao;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = cn;
-                cmd.CommandText = "dbo.prExcluirProduto @codigo";
+                cmd.CommandText = "delete from produtos where codigo = @codigo";
                 cmd.Parameters.AddWithValue("@codigo", codigo);
                 cn.Open();
                 int result = cmd.ExecuteNonQuery();
@@ -101,14 +101,17 @@ namespace DAL
         public DataTable listagem()
         {
             DataTable tabela = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("dbo.prSelectAllProdutos", Dados.stringDeConexao);
+            SqlDataAdapter da = new SqlDataAdapter("select * from produtos", Dados.stringDeConexao);
             da.Fill(tabela);
             return tabela;
         }
 
-        public ArrayList produtosEmfalta()
+        public DataTable produtosEmfalta()
         {
-            throw new NotImplementedException();
+            DataTable tabela = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select * from produtos where estoque = 0", Dados.stringDeConexao);
+            da.Fill(tabela);
+            return tabela;
         }
     }
 }

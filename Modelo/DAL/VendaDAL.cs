@@ -16,7 +16,7 @@ namespace DAL
             {
                 SqlConnection cn = new SqlConnection(Dados.stringDeConexao);
                 cn.Open();
-                SqlDataAdapter da = new SqlDataAdapter("dbo.prSelectAllProdutos", cn);
+                SqlDataAdapter da = new SqlDataAdapter("select * from produtos", cn);
                 DataTable tabela = new DataTable();
                 da.Fill(tabela);
                 cn.Close();
@@ -30,7 +30,7 @@ namespace DAL
             {
                 SqlConnection cn = new SqlConnection(Dados.stringDeConexao);
                 cn.Open();
-                SqlDataAdapter da = new SqlDataAdapter("dbo.prSelectAllClientes", cn);
+                SqlDataAdapter da = new SqlDataAdapter("select * from clientes", cn);
                 DataTable tabela = new DataTable();
                 da.Fill(tabela);
                 cn.Close();
@@ -66,6 +66,7 @@ namespace DAL
                 cmd1.Parameters.AddWithValue("@data", venda.data);
                 cmd1.Parameters.AddWithValue("@quantidade", venda.quantidade);
                 cmd1.Parameters.AddWithValue("@faturado", venda.faturado);
+                
                 cmd2.Parameters.AddWithValue("@codigoProduto", venda.codigoProduto);
                 cmd2.Parameters.AddWithValue("@quantidade", venda.quantidade);
 

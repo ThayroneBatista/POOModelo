@@ -34,9 +34,10 @@ namespace BLL
         {
             if (codigo < 1)
             {
-                throw new Exception("Selecione um cliente antes de excluí-lo ");
+                throw new Exception("Selecione um cliente antes de excluí-lo!");
             }
             ClienteDAL obj = new ClienteDAL();
+            obj.excluir(codigo);
         }
         public DataTable listagem()
         {
